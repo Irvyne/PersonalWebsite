@@ -1,0 +1,4 @@
+irvyne_user:
+    resource: "@IrvyneUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
