@@ -1,0 +1,3 @@
+irvyne_blog_homepage:
+    path:  /hello/{name}
+    defaults: { _controller: IrvyneBlogBundle:Blog:index }

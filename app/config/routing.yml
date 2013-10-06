@@ -1,3 +1,7 @@
+irvyne_blog:
+    resource: "@IrvyneBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
 irvyne_user:
     resource: "@IrvyneUserBundle/Resources/config/routing.yml"
     prefix:   /
