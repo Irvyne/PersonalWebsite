@@ -1,0 +1,4 @@
+category:
+    field:
+        name:
+            label: "Nom de la catégorie : "

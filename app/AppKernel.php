@@ -18,10 +18,24 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Bazinga\Bundle\FakerBundle\BazingaFakerBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
+            new JMS\AopBundle\JMSAopBundle(),
+            new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
+            new JMS\TranslationBundle\JMSTranslationBundle(), // not required, but recommended for better extraction
             new FOS\UserBundle\FOSUserBundle(),
 
-            new Irvyne\UserBundle\IrvyneUserBundle(),
+            new Sonata\BlockBundle\SonataBlockBundle(),
+            new Sonata\jQueryBundle\SonatajQueryBundle(),
+            new Sonata\AdminBundle\SonataAdminBundle(),
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+
             new Irvyne\BlogBundle\IrvyneBlogBundle(),
+            new Irvyne\PortfolioBundle\IrvynePortfolioBundle(),
+            new Irvyne\UserBundle\IrvyneUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

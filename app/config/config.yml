@@ -4,7 +4,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: %locale% }
+    translator:      { fallback: %locale% }
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -26,19 +26,23 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+        locale: %locale%
 
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ ]
-    #java: /usr/bin/java
+    bundles:        []
+    java:           %java%
     filters:
         cssrewrite: ~
         #closure:
         #    jar: %kernel.root_dir%/Resources/java/compiler.jar
-        #yui_css:
-        #    jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
+        yui_css:
+            jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.8.jar
+        yui_js:
+            jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.8.jar
 
 # Doctrine Configuration
 doctrine:
@@ -53,7 +57,6 @@ doctrine:
         # if using pdo_sqlite as your database driver, add the path in parameters.yml
         # e.g. database_path: %kernel.root_dir%/data/data.db3
         # path:     %database_path%
-
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
@@ -61,13 +64,78 @@ doctrine:
 # Swiftmailer Configuration
 swiftmailer:
     transport: %mailer_transport%
+    encryption: tls
     host:      %mailer_host%
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+# BazingaFaker Configuration
+bazinga_faker:
+    orm: doctrine
+    entities:
+        Irvyne\BlogBundle\Entity\Category:
+            number: 500
+        Irvyne\PortfolioBundle\Entity\Client:
+            number: 500
+        Irvyne\PortfolioBundle\Entity\Project:
+            number: 500
+        Irvyne\PortfolioBundle\Entity\Technology:
+            number: 500
+        Irvyne\UserBundle\Entity\User:
+            number: 50
+
+# StofDoctrineExtensions Configuration
+stof_doctrine_extensions:
+    default_locale: %locale%
+    orm:
+        default:
+            tree: true
+            #timestampable: false # not needed: listeners are not enabled by default
+
+# JMSTranslation Configuration
+#jms_translation:
+#    configs:
+#        app:
+#            dirs: [%kernel.root_dir%, %kernel.root_dir%/../src]
+#            output_dir: %kernel.root_dir%/Resources/translations
+#            ignored_domains: [routes]
+#            excluded_names: [*TestCase.php, *Test.php]
+#            excluded_dirs: [cache, data, logs]
+#            extractors: [alias_of_the_extractor]
+
+#translation:extract fr --bundle=IrvyneUserBundle --enable-extractor=jms_i18n_routing --output-format=yml --exclude-dir=Tests
+
+# JMSi18nRouting Configuration
+jms_i18n_routing:
+    default_locale: en
+    locales: [fr, en]
+    strategy: prefix_except_default
 
 # FOSUser Configuration
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: Irvyne\UserBundle\Entity\User
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # Enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+        # Your other blocks
+
+sonata_admin:
+    title:      Thibaud BARDIN BackOffice
+    title_logo: bundles/irvyneblog/images/linktocat.png
+    options:
+        html5_validate: true
+        confirm_exit:   true
+
+# Services Configuration
+services:
+    twig.text_extension:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - name: twig.extension

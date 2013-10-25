@@ -1,0 +1,47 @@
+# Desc: /profile/change-password
+fos_user_change_password: /profile/change-password
+
+# Desc: /profile/edit
+fos_user_profile_edit: /profile/edit
+
+# Desc: /profile/
+fos_user_profile_show: /profile/
+
+# Desc: /register/check-email
+fos_user_registration_check_email: /register/check-email
+
+# Desc: /register/confirm/{token}
+fos_user_registration_confirm: '/register/confirm/{token}'
+
+# Desc: /register/confirmed
+fos_user_registration_confirmed: /register/confirmed
+
+# Desc: /register/
+fos_user_registration_register: /register/
+
+# Desc: /resetting/check-email
+fos_user_resetting_check_email: /resetting/check-email
+
+# Desc: /resetting/request
+fos_user_resetting_request: /resetting/request
+
+# Desc: /resetting/reset/{token}
+fos_user_resetting_reset: '/resetting/reset/{token}'
+
+# Desc: /resetting/send-email
+fos_user_resetting_send_email: /resetting/send-email
+
+# Desc: /login_check
+fos_user_security_check: /login_check
+
+# Desc: /login
+fos_user_security_login: /login
+
+# Desc: /logout
+fos_user_security_logout: /logout
+
+# Desc: /hello/{name}
+irvyne_blog_homepage: '/hello/{name}'
+
+# Desc: /hello/{name}
+irvyne_user_homepage: '/hello/{name}'

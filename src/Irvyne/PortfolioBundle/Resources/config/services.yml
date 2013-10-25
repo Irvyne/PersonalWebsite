@@ -1,0 +1,7 @@
+parameters:
+#    irvyne_portfolio.example.class: Irvyne\PortfolioBundle\Example
+
+services:
+#    irvyne_portfolio.example:
+#        class: %irvyne_portfolio.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

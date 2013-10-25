@@ -11,5 +11,7 @@ parameters:
     mailer_user:       ~
     mailer_password:   ~
 
+    java: /usr/bin/java
+
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt

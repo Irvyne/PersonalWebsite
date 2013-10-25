@@ -4,6 +4,7 @@
 /app/config/parameters.yml
 /app/logs/*
 /app/sessions/*
+/app/phpunit.xml
 !app/cache/.gitkeep
 !app/logs/.gitkeep
 /build/
@@ -13,3 +14,5 @@
 
 /.DS_*
 /.idea/
+/.vagrant/
+/Vagrantfile

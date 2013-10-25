@@ -1,0 +1,3 @@
+irvyne_portfolio_homepage:
+    path:  /portfolio
+    defaults: { _controller: IrvynePortfolioBundle:Portfolio:index }
